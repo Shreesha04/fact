@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+</head>
+<body>
+    <h1>Factorial of the given number</h1>
+    <form method="post">
+        {% csrf_token %}
+        <h3><label for="number">Enter a number between 1 to 10: </label></h3>
+        <input type="text" id="number" name="number" required>
+        <button type="submit">Calculate</button>
+    </form>
+    {% if result is not None %}
+        <h4><p>The factorial of {{ number }} is {{ result }}</p></h4>
+    {% elif error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
